@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jelajah Keindahan Gunung Indonesia</title>
+    <title>Jelajah Gunung Indonesia</title>
     <style>
-        /* Nuansa Coklat Kebiruan (Earthy & Alpine Blue) */
         body {
             display: flex;
             justify-content: center;
@@ -13,7 +12,7 @@
             min-height: 100vh;
             margin: 0;
             background: linear-gradient(135deg, #2b4c7e 0%, #a18262 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             overflow-x: hidden;
             padding: 20px;
             box-sizing: border-box;
@@ -21,202 +20,111 @@
 
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.92);
-            padding: 35px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             border: 3px solid #8a6f53;
-            max-width: 500px;
+            max-width: 450px;
             width: 100%;
-            backdrop-filter: blur(5px);
-            transition: max-width 0.5s ease;
+            transition: all 0.5s ease;
         }
 
-        /* Ketika info gunung muncul, container melebar sedikit agar muat */
-        .container.wide {
-            max-width: 700px;
-        }
+        .container.wide { max-width: 650px; }
 
-        h1 {
-            color: #1a365d;
-            font-size: 26px;
-            margin-bottom: 10px;
-        }
+        h1 { color: #1a365d; font-size: 22px; margin-bottom: 10px; }
+        p { color: #5c4433; font-size: 15px; }
 
-        p {
-            color: #5c4433;
-            font-size: 16px;
-            margin-bottom: 25px;
-        }
-
-        .sticker {
-            width: 130px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 5px 8px rgba(0,0,0,0.15));
-        }
+        .sticker { width: 120px; margin-bottom: 15px; }
 
         .btn-group {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         button {
-            padding: 14px 30px;
+            padding: 12px 25px;
             font-size: 16px;
             font-weight: bold;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        #yesBtn {
-            background-color: #2b4c7e;
-            color: white;
-        }
+        #yesBtn { background: #2b4c7e; color: white; }
+        #noBtn { background: #c8b195; color: #4a3728; position: relative; }
 
-        #yesBtn:hover {
-            background-color: #1a365d;
-            transform: scale(1.1);
-        }
-
-        #noBtn {
-            background-color: #c8b195;
-            color: #4a3728;
-            position: relative;
-            z-index: 999;
-        }
-
-        /* Bagian Penjelasan Gunung (Hidden at first) */
-        #mountainInfo {
-            display: none;
-            margin-top: 10px;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
+        #mountainInfo { display: none; margin-top: 20px; text-align: left; animation: fadeInUp 0.5s ease; }
+        
         .mountain-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 20px;
-            text-align: left;
+            margin-top: 15px;
         }
 
-        @media (max-width: 500px) {
-            .mountain-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .mountain-card {
-            background: #f7f4f0;
+        .card {
+            background: #fdfaf6;
             padding: 15px;
             border-radius: 12px;
             border-left: 5px solid #2b4c7e;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
-
-        .mountain-card h3 {
-            margin: 0 0 5px 0;
-            color: #2b4c7e;
-            font-size: 18px;
-        }
-
-        .mountain-card p {
-            margin: 0;
-            font-size: 13px;
-            color: #555;
-            line-height: 1.4;
+            font-size: 14px;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) { 
+            .mountain-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 18px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container" id="mainContainer">
-        <!-- Konten Utama (Ajakan) -->
         <div id="content">
-            <!-- Sticker Lucu Bertema Petualangan/Camp -->
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms3Mmd3Yzh3b3NtbTBvMXR3b3ZidmFnbDZ4NndqdXRxZXc0Z2N6NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Wryv9pdYnLgOc9vS2X/giphy.gif" alt="Camp Sticker" class="sticker">
-            
-            <h1>Mari Menjelajahi Keindahan Gunung di Indonesia! 🏔️</h1>
-            <p>Atap-atap negeri yang megah menantangmu untuk melangkah. Berani ikut?</p>
-            
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbms3Mmd3Yzh3b3NtbTBvMXR3b3ZidmFnbDZ4NndqdXRxZXc0Z2N6NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Wryv9pdYnLgOc9vS2X/giphy.gif" class="sticker">
+            <h1>Eksplor Gunung Indonesia? 🏔️</h1>
+            <p>Ayo jelajahi keindahan puncak tertinggi negeri ini!</p>
             <div class="btn-group">
                 <button id="yesBtn" onclick="showMountains()">AYOO!</button>
                 <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">LAGI MALAS</button>
             </div>
         </div>
 
-        <!-- Konten Penjelasan Gunung -->
         <div id="mountainInfo">
-            <!-- Sticker Sukses (Ransel/Jalan-jalan) -->
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDVreGwwbnJhZXp0ZHlyN3d3NHU4MGdzZHJiaG1maDJqcnhtNnRtbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fsE0rZzXbN00y3UcoZ/giphy.gif" alt="Adventure Bag" class="sticker" style="width: 100px;">
-            
-            <h1 style="color: #a18262;">Pilihan yang Tepat! 🧭</h1>
-            <p style="margin-bottom: 15px;">Inilah beberapa mahakarya alam Indonesia yang wajib kamu tahu:</p>
-            
+            <h2 style="color: #a18262; text-align: center; font-size: 20px;">Destinasi Impian 🧭</h2>
             <div class="mountain-grid">
-                <div class="mountain-card">
-                    <h3>🌋 Gunung Bromo</h3>
-                    <p>Terkenal dengan lautan pasirnya yang luas dan pemandangan matahari terbit legendaris berlatar belakang Gunung Semeru.</p>
-                </div>
-                <div class="mountain-card">
-                    <h3>🏔️ Gunung Rinjani</h3>
-                    <p>Permata Pulau Lombok yang memiliki Danau Segara Anak yang luar biasa indah di dalam kawahnya yang megah.</p>
-                </div>
-                <div class="mountain-card">
-                    <h3>🔥 Gunung Ijen</h3>
-                    <p>Terkenal secara internasional berkat fenomena api biru alami (Blue Fire) yang langka di dalam danau kawah asamnya.</p>
-                </div>
-                <div class="mountain-card">
-                    <h3>👑 Cartenz Pyramid</h3>
-                    <p>Puncak tertinggi di Indonesia yang terletak di Papua, menjadi satu-satunya tempat di khatulistiwa kita yang diselimuti salju abadi.</p>
-                </div>
+                <div class="card"><b>🌋 Bromo:</b> Nikmati lautan pasir dan sunrise legendaris di Jawa Timur.</div>
+                <div class="card"><b>🏔️ Rinjani:</b> Pesona Danau Segara Anak di puncak Lombok yang magis.</div>
+                <div class="card"><b>🔥 Ijen:</b> Lihat fenomena Blue Fire yang hanya ada dua di dunia.</div>
+                <div class="card"><b>👑 Cartenz:</b> Satu-satunya tempat bersalju di khatulistiwa Indonesia.</div>
             </div>
         </div>
     </div>
 
     <script>
         function moveButton() {
-            const noBtn = document.getElementById('noBtn');
-            
-            // Batasi pergerakan agar tombol tidak terlalu keluar dari layar visual
-            const padding = 80;
-            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-            
-            // Menentukan posisi acak baru
-            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
-            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
-            
-            noBtn.style.position = "fixed";
-            noBtn.style.left = randomX + "px";
-            noBtn.style.top = randomY + "px";
+            const btn = document.getElementById('noBtn');
+            const padding = 50;
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth - padding);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight - padding);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
         }
 
         function showMountains() {
-            // Sembunyikan pilihan awal
-            document.getElementById('content').style.display = "none";
-            
-            // Perlebar container agar bacaan info gunung lebih nyaman dibaca
+            document.getElementById('content').style.display = 'none';
             document.getElementById('mainContainer').classList.add('wide');
-            
-            // Tampilkan penjelasan gunung
-            document.getElementById('mountainInfo').style.style.display = "block";
-            
-            // Menghilangkan posisi fixed tombol No seandainya sempat melayang ke mana-mana
-            document.getElementById('noBtn').style.display = "none";
+            document.getElementById('mountainInfo').style.display = 'block';
         }
     </script>
-
 </body>
 </html>
